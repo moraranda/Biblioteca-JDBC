@@ -17,5 +17,4 @@ public class ConexionBD {
         }
         return con;
     }
-    System
 }
