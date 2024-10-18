@@ -8,7 +8,7 @@ public class Prestamo {
     private Libro libro;
 
     //Contructor
-    public Prestamo(int idPrestamo, Date fechaInicio, Date fechaFin, Usuario usuario, Libro libro) {
+    public Prestamo() {
         this.idPrestamo = idPrestamo;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
