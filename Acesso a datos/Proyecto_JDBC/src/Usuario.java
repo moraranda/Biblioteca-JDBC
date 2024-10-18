@@ -3,7 +3,7 @@ public class Usuario {
     private int idUsario;
 
     //Contructor
-    public Usuario(String nombre, int idUsario) {
+    public Usuario() {
         this.nombre = nombre;
         this.idUsario = idUsario;
     }
