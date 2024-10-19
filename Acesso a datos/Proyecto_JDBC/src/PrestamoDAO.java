@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PrestamoDAO {
     //Insertar Prestamo
-    public  void insertPrestamo(Prestamo prestamo){
+    public  int insertPrestamo(Prestamo prestamo){
         String sql = "INSERT INTO Prestamo (fechaInicio, fechaFinal, idUsuario, idLibro) VALUES(?,?,?,?)";
         try(Connection con= ConexionBD.getConnection();
         PreparedStatement pst = con.prepareStatement(sql)){
@@ -19,6 +19,7 @@ public class PrestamoDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return  1;
     }
 
     //Leer Prestamos
@@ -43,30 +44,8 @@ public class PrestamoDAO {
         return prestamos;
     }
 
-    //Leer Prestamos por Id
-    public Prestamo leerPrestamosId(int id){
-        Prestamo prestamo = null;
-        String sql = "SELECT * FROM Prestamo WHERE idPrestamo = ?";
-        try(Connection con= ConexionBD.getConnection();
-        PreparedStatement ps= con.prepareStatement(sql)){
-            ps.setInt(1,id);
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                prestamo = new Prestamo();
-                prestamo.setIdPrestamo(rs.getInt("idPrestamo"));
-                prestamo.setFechaInicio(rs.getDate("fechaInicio"));
-                prestamo.setFechaFin(rs.getDate("fechaFin"));
-                prestamo.getUsuario().setIdUsario(rs.getInt("idUsuario"));
-                prestamo.getLibro().setIdLibro(rs.getInt("idLibro"));
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return prestamo;
-    }
-
     //Update Prestamos
-    public void updatePrestamo(Prestamo prestamo){
+    public int updatePrestamo(Prestamo prestamo){
         String SQL="UPDATE Prestamo SET fechaInicio=?, fechaFin=?, usuario=?, libro=? WHERE idPrestamo=?";
         try(Connection con= ConexionBD.getConnection();
         PreparedStatement ps= con.prepareStatement(SQL)){
@@ -79,17 +58,19 @@ public class PrestamoDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return  1;
     }
 
     //Eliminar Prestamos
-    public void deletePrestamo(int id){
+    public int deletePrestamo(Prestamo prestamo){
         String sql = "DELETE FROM Prestamo WHERE idPrestamo = ?";
         try(Connection con= ConexionBD.getConnection();
         PreparedStatement ps= con.prepareStatement(sql)){
-            ps.setInt(1,id);
+            ps.setInt(1, prestamo.getIdPrestamo());
             ps.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return 1;
     }
 }
