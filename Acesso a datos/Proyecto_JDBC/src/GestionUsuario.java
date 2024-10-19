@@ -15,7 +15,7 @@ public class GestionUsuario {
     }
 
     //Obtiene lso Usuarios por id
-    public Usuario obtenerUsuarruiID(int id){
+    public Usuario obtenerUsuarioId(int id){
         for(Usuario usuario: this.listausuarios){
             if(usuario.getIdUsario() == id){
                 return usuario;
