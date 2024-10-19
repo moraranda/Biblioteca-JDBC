@@ -42,4 +42,54 @@ public class PrestamoDAO {
         }
         return prestamos;
     }
+
+    //Leer Prestamos por Id
+    public Prestamo leerPrestamosId(int id){
+        Prestamo prestamo = null;
+        String sql = "SELECT * FROM Prestamo WHERE idPrestamo = ?";
+        try(Connection con= ConexionBD.getConnection();
+        PreparedStatement ps= con.prepareStatement(sql)){
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                prestamo = new Prestamo();
+                prestamo.setIdPrestamo(rs.getInt("idPrestamo"));
+                prestamo.setFechaInicio(rs.getDate("fechaInicio"));
+                prestamo.setFechaFin(rs.getDate("fechaFin"));
+                prestamo.getUsuario().setIdUsario(rs.getInt("idUsuario"));
+                prestamo.getLibro().setIdLibro(rs.getInt("idLibro"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return prestamo;
+    }
+
+    //Update Prestamos
+    public void updatePrestamo(Prestamo prestamo){
+        String SQL="UPDATE Prestamo SET fechaInicio=?, fechaFin=?, usuario=?, libro=? WHERE idPrestamo=?";
+        try(Connection con= ConexionBD.getConnection();
+        PreparedStatement ps= con.prepareStatement(SQL)){
+            ps.setDate(1, new java.sql.Date(prestamo.getFechaInicio().getTime()));
+            ps.setDate(2, new java.sql.Date(prestamo.getFechaFin().getTime()));
+            ps.setInt(3, prestamo.getUsuario().getIdUsario());
+            ps.setInt(4, prestamo.getLibro().getIdLibro());
+            ps.setInt(5, prestamo.getIdPrestamo());
+            ps.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    //Eliminar Prestamos
+    public void deletePrestamo(int id){
+        String sql = "DELETE FROM Prestamo WHERE idPrestamo = ?";
+        try(Connection con= ConexionBD.getConnection();
+        PreparedStatement ps= con.prepareStatement(sql)){
+            ps.setInt(1,id);
+            ps.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
