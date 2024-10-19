@@ -3,9 +3,13 @@ public class Usuario {
     private int idUsario;
 
     //Contructor
-    public Usuario() {
+    public Usuario(int idUsario, String nombre) {
         this.nombre = nombre;
         this.idUsario = idUsario;
+    }
+
+    public Usuario() {
+
     }
 
     //Getters y setters
