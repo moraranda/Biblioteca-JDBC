@@ -16,6 +16,14 @@ public class Prestamo {
         this.libro = libro;
     }
 
+    public Prestamo(int i, String fechaInicio, String fechaFin, int idUsuario, int idLibro) {
+        this.idPrestamo = idPrestamo;
+        this.fechaInicio = Date.valueOf(fechaInicio);
+        this.fechaFin = Date.valueOf(fechaFin);
+        this.usuario = usuario;
+        this.libro = libro;
+    }
+
     //Getters y setters
     public int getIdPrestamo() {
         return idPrestamo;
