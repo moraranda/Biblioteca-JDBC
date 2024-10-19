@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UsuarioDAO {
     //Insertar Usuario
-    public void inserirUsuario(Usuario usuario){
+    public int insertUsuario(Usuario usuario){
         String SQL = "INSERT INTO Usuario (nombre) VALUES (?)";
         try(Connection con= ConexionBD.getConnection();
             PreparedStatement ps= con.prepareStatement(SQL)){
@@ -16,6 +16,7 @@ public class UsuarioDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return 1;
     }
 
     //Leer Usuario
@@ -38,7 +39,7 @@ public class UsuarioDAO {
     }
 
     //Actualizar Usuario
-    public void actualizarUsuario(Usuario usuario){
+    public int actualizarUsuario(Usuario usuario){
         String SQL="UPDATE Usuario SET nombre=? WHERE idUsario=?";
         try(Connection con= ConexionBD.getConnection();
         PreparedStatement ps= con.prepareStatement(SQL)){
@@ -48,10 +49,11 @@ public class UsuarioDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return 1;
     }
 
     //Borrar Usuario
-    public void deleteUsuario(Usuario usuario){
+    public int deleteUsuario(Usuario usuario){
         String SQL = "DELETE FROM Usuario WHERE idUsario = ?";
         try(Connection con= ConexionBD.getConnection();
         PreparedStatement ps= con.prepareStatement(SQL)){
@@ -60,5 +62,6 @@ public class UsuarioDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return 1;
     }
 }
