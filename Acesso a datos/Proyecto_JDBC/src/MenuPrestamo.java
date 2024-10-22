@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class MenuPrestamo {
     private GestionPrestamo gestionPrestamo;
     private Scanner sc;
