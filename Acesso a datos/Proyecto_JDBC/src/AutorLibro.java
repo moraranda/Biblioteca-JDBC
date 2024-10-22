@@ -1,5 +1,3 @@
-package org.example;
-
 public class AutorLibro {
     // Variables
     private int idAutor;

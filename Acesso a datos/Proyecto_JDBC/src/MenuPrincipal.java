@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class MenuPrincipal {
     MenuAutores menuAutores = new MenuAutores();
     MenuLibros menuLibros = new MenuLibros();
+    MenuUsuario menuUsuario = new MenuUsuario();
+    MenuPrestamo menuPrestamo = new MenuPrestamo();
 
     Scanner sc = new Scanner(System.in);
     public MenuPrincipal() {
@@ -27,11 +29,11 @@ public class MenuPrincipal {
                 }
 
                 case 3 -> {
-                    System.out.println("aa");
+                    menuPrestamo.mostrarMenuPrestamo();
                 }
 
                 case 4 -> {
-                    System.out.println("bb");
+                    menuUsuario.mostrarMenuUsuario();
                 }
 
                 case 5 -> System.out.println("Cerrando programa..");
