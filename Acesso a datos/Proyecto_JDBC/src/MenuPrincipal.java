@@ -6,6 +6,7 @@ public class MenuPrincipal {
     MenuLibros menuLibros = new MenuLibros();
     MenuUsuario menuUsuario = new MenuUsuario();
     MenuPrestamo menuPrestamo = new MenuPrestamo();
+    MenuAutoresLibros menuAutoresLibros = new MenuAutoresLibros();
 
     Scanner sc = new Scanner(System.in);
     public MenuPrincipal() {
@@ -36,7 +37,7 @@ public class MenuPrincipal {
                 }
 
                 case 5 -> {
-
+                    menuAutoresLibros.showMenuAuthorBook();
                 }
 
                 case 6 -> System.out.println("Cerrando programa..");
