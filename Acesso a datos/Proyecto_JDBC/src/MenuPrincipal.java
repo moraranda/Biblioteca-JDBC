@@ -2,6 +2,7 @@
 import java.util.Scanner;
 
 public class MenuPrincipal {
+    // Menus
     MenuAutores menuAutores = new MenuAutores();
     MenuLibros menuLibros = new MenuLibros();
     MenuUsuario menuUsuario = new MenuUsuario();
