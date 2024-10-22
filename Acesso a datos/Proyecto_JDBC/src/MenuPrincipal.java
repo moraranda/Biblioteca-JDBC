@@ -15,7 +15,7 @@ public class MenuPrincipal {
         int menu;
 
         do {
-            System.out.println("---- Gestor de Autores/Libros/Usuarios/Prestamos ----\n1. Autores\n2. Libros\n3. Usuarios.\n4. Prestamos\n5. Cerrar programa");
+            System.out.println("---- Gestor de Autores/Libros/Usuarios/Prestamos ----\n1. Autores\n2. Libros\n3. Usuarios.\n4. Prestamos\n6. Cerrar programa");
             menu = sc.nextInt();
 
             switch (menu) {
@@ -35,10 +35,14 @@ public class MenuPrincipal {
                     menuUsuario.mostrarMenuUsuario();
                 }
 
-                case 5 -> System.out.println("Cerrando programa..");
+                case 5 -> {
+
+                }
+
+                case 6 -> System.out.println("Cerrando programa..");
 
                 default -> System.out.println("Opcion no valida.");
             }
-        } while(menu!= 5);
+        } while(menu!= 6);
     }
 }
