@@ -47,7 +47,7 @@ public class MenuAutoresLibros {
                     int idLibro = sc.nextInt();
                     sc.nextLine();
 
-                    Autor autor = new Autor(idAutor;
+                    Autor autor = new Autor(idAutor);
                     Libro libro = new Libro(idLibro);
 
                     int resultado = gestorAutoresLibros.insertarAutorLibro(autor, libro);
